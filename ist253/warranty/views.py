@@ -31,11 +31,13 @@ def customer_list(request):
     return HttpResponse(t.render(c))
 
 def customer_detail(request, customerAccountNo):
-    customer_list = Customer.objects.all()
     customer = get_object_or_404(Customer, pk=customerAccountNo)
+    #products = Product.objects.filter(recipe__book=customer)
+    products = CustomerProduct.objects.all()
     t = loader.get_template('warranty/customer_detail.html')
     c = Context({
         'customer': customer,
+        'products': products,
     })
     return HttpResponse(t.render(c))
 
@@ -48,7 +50,6 @@ def product_list(request):
     return HttpResponse(t.render(c))
 
 def product_detail(request, productAccountNo):
-    product_list = Product.objects.all()
     product = get_object_or_404(Product, pk=productAccountNo)
     t = loader.get_template('warranty/product_detail.html')
     c = Context({
@@ -67,7 +68,6 @@ def inventory_list(request):
     #return HttpResponse("Yahoo")
 
 def inventory_detail(request, partno):
-    inventory_list = Inventory.objects.all()
     inventory = get_object_or_404(Inventory, pk=partno)
     t = loader.get_template('warranty/inventory_detail.html')
     c = Context({
@@ -86,7 +86,6 @@ def diagnostic_list(request):
     #return HttpResponse("Yahoo")
 
 def diagnostic_detail(request, diagno):
-    diagnostic_list = Diagnostic.objects.all()
     diagnostic = get_object_or_404(Diagnostic, pk=diagno)
     t = loader.get_template('warranty/diagnostic_detail.html')
     c = Context({
@@ -106,7 +105,6 @@ def invoice_list(request):
     #return HttpResponse("Yahoo")
 
 def invoice_detail(request, invno):
-    invoice_list = Invoice.objects.all()
     invoice = get_object_or_404(Invoice, pk=invno)
     t = loader.get_template('warranty/invoice_detail.html')
     c = Context({
@@ -126,7 +124,6 @@ def test_list(request):
     #return HttpResponse("Yahoo")
 
 def test_detail(request, testresno):
-    test_list = TestResults.objects.all()
     test = get_object_or_404(TestResults, pk=testresno)
     t = loader.get_template('warranty/test_detail.html')
     c = Context({
@@ -146,7 +143,6 @@ def service_plan_list(request):
     #return HttpResponse("Yahoo")
 
 def service_plan_detail(request, serplanno):
-    service_plan_list = ServicePlan.objects.all()
     service_plan = get_object_or_404(ServicePlan, pk=serplanno)
     t = loader.get_template('warranty/service_plan_detail.html')
     c = Context({
