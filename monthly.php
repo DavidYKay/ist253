@@ -4,16 +4,17 @@ include "include.php";
 
 $mysqli = new mysqli( $db_host, $db_user, $db_password, $db_database);
 
-echo "<strong>Most Popular Appliances</strong>";
+echo "<strong>Active Monthly Plans, Sorted by Product Type</strong>";
 echo "<br />";
 echo "<br />";
 //three-way join
 if ($result = $mysqli->query(
-    "SELECT CUSTOMER_PRODUCT.ProdSerno, PRODUCT.ProdType, COUNT(CUSTOMER_PRODUCT.ProdSerno) As 'Count'
-    FROM PRODUCT
+    "SELECT * 
+    FROM SERVICE_PLAN
     LEFT JOIN CUSTOMER_PRODUCT
-    ON PRODUCT.ProdSerNo = CUSTOMER_PRODUCT.ProdSerNo
-    Group By ProdSerNo"
+    ON SERVICE_PLAN.SerPlanNo = CUSTOMER_PRODUCT.SerPlanNo
+    WHERE SerPlanType = 'A'
+    ORDER BY CUSTOMER_PRODUCT.ProdSerNo"
 )) {
     //Print the result set into a table
     prettyPrint($result);
