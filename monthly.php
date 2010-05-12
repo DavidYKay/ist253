@@ -9,12 +9,9 @@ echo "<br />";
 echo "<br />";
 //three-way join
 if ($result = $mysqli->query(
-    "SELECT * 
-    FROM SERVICE_PLAN
-    LEFT JOIN CUSTOMER_PRODUCT
-    ON SERVICE_PLAN.SerPlanNo = CUSTOMER_PRODUCT.SerPlanNo
-    WHERE SerPlanType = 'A'
-    ORDER BY CUSTOMER_PRODUCT.ProdSerNo"
+    "SELECT * FROM SERVICE_PLAN, CUSTOMER_PRODUCT, PRODUCT 
+    WHERE SERVICE_PLAN.SerPlanNo = CUSTOMER_PRODUCT.SerPlanNo AND CUSTOMER_PRODUCT.ProdSerNo = PRODUCT.ProdSerNo
+    ORDER BY PRODUCT.ProdType"
 )) {
     //Print the result set into a table
     prettyPrint($result);
