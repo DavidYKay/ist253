@@ -41,7 +41,7 @@ MEDIA_ROOT = '/var/www/localhost/htdocs/media'
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = 'http://davidykay.com/media/'
+MEDIA_URL = 'http://davidykay.com/site_media/'
 
 #STATIC_DOC_ROOT = '/home/dk/workspace/python/django/media'
 #STATIC_DOC_ROOT = MEDIA_ROOT 
