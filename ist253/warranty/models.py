@@ -2,14 +2,6 @@ from django.db import models
 
 # Create your models here.
 
-class Product(models.Model):
-    def __unicode__(self):
-        return self.prodserno
-    prodserno = models.CharField(max_length=54, primary_key=True, db_column='ProdSerNo') # Field name made lowercase.
-    prodtype  = models.CharField(max_length=54, db_column='ProdType') # Field name made lowercase.
-    class Meta:
-        db_table = u'PRODUCT'
-
 class Customer(models.Model):
     def __unicode__(self):
         return self.customerfname + ' ' + self.customerlname
@@ -23,6 +15,15 @@ class Customer(models.Model):
     customerphone = models.CharField(max_length=60, db_column='CustomerPhone', blank=True) # Field name made lowercase.
     class Meta:
         db_table = u'CUSTOMER'
+
+class Product(models.Model):
+    def __unicode__(self):
+        return self.prodserno
+    prodserno = models.CharField(max_length=54, primary_key=True, db_column='ProdSerNo') # Field name made lowercase.
+    prodtype  = models.CharField(max_length=54, db_column='ProdType') # Field name made lowercase.
+    #customers = models.ManyToManyField(Customer)
+    class Meta:
+        db_table = u'PRODUCT'
 
 class Diagnostic(models.Model):
     def __unicode__(self):

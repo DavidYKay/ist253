@@ -1,10 +1,9 @@
-{% extends "warranty/list.html" %}
+{% extends "warranty/detail.html" %}
 
 {% block content %}
-{% if test_list %}
+{% if test %}
 <table border=2>
     <tr><th>Test Result Number</th><th>Product Serial Number</th><th>Diagnostic Number</th><th>Status</th><th>Part Number</th><th>Est. Service Date</th></tr>
-    {% for test in test_list %}
     <tr> 
         <td><a href="/test_results/{{ test.testresno }}/"> {{ test.testresno }} </a> </td>
         <td><a href="/products/{{ test.prodserno }}/"> {{ test.prodserno }} </a> </td>
@@ -17,7 +16,6 @@
         {% endif %}
         <td>{{ test.estserdate }}</td>
     </tr>
-    {% endfor %}
 </table>
 {% else %}
 <p>No tests are available.</p>

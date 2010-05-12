@@ -1,0 +1,13 @@
+{% extends "warranty/detail.html" %}
+
+{% block content %}
+{% if diagnostic %}
+<table border=2>
+    <tr><th>Diagnostic Number</th><th>Diagnostic Begin Date</th><th>Diagnostic End Date</th><th>Diagnostic Result</th></tr>
+    <tr> 
+        <td><a href="/diagnostics/{{ diagnostic.diagno}}/"> {{ diagnostic.diagno}} </a> </td><td>{{ diagnostic.diagbegindate }}</td><td>{{ diagnostic.diagenddate }}</td><td>{{ diagnostic.diagresult }} </td></tr>
+</table>
+{% else %}
+<p>No diagnostics are available.</p>
+{% endif %}
+{% endblock %}

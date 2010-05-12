@@ -22,7 +22,6 @@ def customer_product_list(request):
     return HttpResponse(t.render(c))
 
 def customer_list(request):
-    #latest_customer_list = Customer.objects.all().order_by('-customeraccountno')[:5]
     latest_customer_list = Customer.objects.all().order_by('customeraccountno')
     t = loader.get_template('warranty/customers.html')
     c = Context({
@@ -33,13 +32,42 @@ def customer_list(request):
 def customer_detail(request, customerAccountNo):
     customer = get_object_or_404(Customer, pk=customerAccountNo)
     #products = Product.objects.filter(recipe__book=customer)
-    products = CustomerProduct.objects.all()
+    #products = Product.objects.filter(recipe__book=customer)
+    #products = Product.objects.filter(customers__customeraccountno = customerAccountNo)
+    #products = Product.objects.all()
+    products = my_custom_sql(customerAccountNo)
     t = loader.get_template('warranty/customer_detail.html')
     c = Context({
         'customer': customer,
         'products': products,
     })
     return HttpResponse(t.render(c))
+
+def my_custom_sql(custNo):
+    from django.db import connection, transaction
+    cursor = connection.cursor()
+
+    # Data modifying operation - commit required
+    #cursor.execute("UPDATE bar SET foo = 1 WHERE baz = %s", [self.baz])
+    #transaction.commit_unless_managed()
+
+    # Data retrieval operation - no commit requiredw
+    cursor.execute("SELECT * FROM CUSTOMER_PRODUCT WHERE CustomerAccountNo = %s", [custNo])
+    #row = cursor.fetchone()
+    results = cursor.fetchall()
+
+    products = []
+    for result in results:
+        #product = Product(*result)
+        productId = str(result[0])
+        cursor.execute("SELECT * FROM PRODUCT WHERE ProdSerNo = %s", [productId])
+        productResults = cursor.fetchall()
+        for productResult in productResults:
+            #product = Product.objects.get(prodserno = productId)
+            product = Product(*productResult)
+            products.append(product)
+
+    return products
 
 def product_list(request):
     product_list = Product.objects.all().order_by('prodserno')

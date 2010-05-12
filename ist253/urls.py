@@ -41,7 +41,7 @@ urlpatterns = patterns('ist253.warranty.views',
     url(r'^invoices/(\d+)/$', 'invoice_detail'),
 
     url(r'^inventory/$', 'inventory_list'),
-    url(r'^inventory/(\d+)/$', 'inventory_detail'),
+    url(r'^inventory/(\w+)/$', 'inventory_detail'),
 
     url(r'^diagnostics/$', 'diagnostic_list'),
     url(r'^diagnostics/(\d+)/$', 'diagnostic_detail'),
