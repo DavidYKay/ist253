@@ -1,0 +1,22 @@
+{% extends "warranty/detail.html" %}
+
+{% block content %}
+{% if service_plan %}
+<table border=2>
+    <tr>
+        <th>Service Plan Number</th>
+        <th>Service Plan Type</th>
+        <th>Service Plan Rate</th>
+        <th>Date Issued</th>
+    </tr>
+    <tr> 
+        <td><a href="/service_plans/{{ service_plan.serplanno }}/"> {{ service_plan.serplanno }} </a> </td>
+        <td>{{ service_plan.serplantype }}</td>
+        <td>{{ service_plan.serplanrate }}</td>
+        <td>{{ service_plan.serplanissued }} </td>
+    </tr>
+</table>
+{% else %}
+<p>No service plans are available.</p>
+{% endif %}
+{% endblock %}

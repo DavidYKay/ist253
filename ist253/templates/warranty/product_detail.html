@@ -1,0 +1,5 @@
+{% extends "warranty/detail.html" %}
+{% block title %}Product Detail{% endblock %}
+{% block content %}
+<li><a href="/products/{{ product.prodserno }}/">{{ product.prodserno }} {{ product.prodtype }}</a></li>
+{% endblock %}

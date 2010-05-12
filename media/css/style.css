@@ -1,0 +1,119 @@
+* {
+	margin:0;
+	padding:0;
+	text-decoration:none;
+	font-family:"Trebuchet MS",arial,sans-serif;
+	font-size:10pt;
+	color:#000000;
+}
+
+body {
+	background:#102040 url(http://media.cstarleague.com/img/bg.jpg) repeat-x scroll 0 0;
+}
+
+a{
+	color:#206080;
+}
+a:hover{
+	color:#40a0d0;
+}
+
+#container {
+	margin:0 auto;
+	width:1000px;
+	background-color:white;
+}
+
+#header {
+	text-align:center;
+}
+
+#sidebar {
+	text-transform:uppercase;
+	float:left;
+	margin:0 0 10px 10px;
+	width:200px;
+}
+#sidebar h1 {
+	margin:10px 0 0 0;
+	padding:0.25em 2em;
+	font-size:16pt;
+	font-weight:normal;
+	color:#ffffff;
+	background:#ffffff url(http://media.cstarleague.com/img/bg-side.png) no-repeat center left;
+}
+#sidebar ul {
+	list-style:none;
+}
+#sidebar ul li{
+	padding:0 0 0.5em 2em;
+}
+#sidebar ul li a {
+	font-weight:bold;
+	color:#000000;
+}
+#sidebar ul li a:hover {
+	color:#40a0d0;
+}
+
+#content {
+	float:right;
+	width:780px;
+	margin:0 10px 10px 0;
+	background-color:#ffffff;
+}
+#content h2 {
+	margin:10px 0 0 0;
+	padding:0.25em 2em;
+	font-size:16pt;
+	font-weight:normal;
+	color:#ffffff;
+	background:#ffffff url(http://media.cstarleague.com/img/bg-header.png) no-repeat center left;
+}
+#content h3 {
+	padding:0.25em 0 0 2.5em;
+	font-size:14pt;
+	font-weight:normal;
+	color:#000000;
+}
+
+.box {
+	margin:0 4em;
+}
+.box p {
+	margin:0.5em 0;
+}
+.box blockquote {
+	margin:0 0 0 2em;
+	border-top: thin solid;
+	border-bottom: thin solid;
+}
+.box ul {
+	margin:0.5em 1em;
+}
+.box table {
+    margin:0.5em 0;
+}
+.box table th,td {
+	padding:0.1em 0.5em;
+}
+
+.display th {
+	text-align:right;
+}
+
+.errorlist li {
+	font-style:italic;
+	color:#ff0000;
+}
+
+.odd td {
+	background-color:#e0e0e0;
+}
+.even td {
+}
+
+.clearfloat {
+	clear:both;
+	height:0;
+}

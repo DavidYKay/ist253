@@ -1,0 +1,15 @@
+{% extends "warranty/list.html" %}
+
+{% block content %}
+{% if invoice_list %}
+<table border=2>
+    <tr><th>Invoice Number</th><th>Invoice Number</th><th>Sales Tax</th><th>Invoice Due Date</th></tr>
+    {% for invoice in invoice_list %}
+    <tr> 
+        <td><a href="/invoices/{{ invoice.invno}}/"> {{ invoice.invno}} </a> </td><td>{{ invoice.invdate }}</td><td>{{ invoice.salestax }}</td><td>{{ invoice.invduedate }} </td></tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No invoices are available.</p>
+{% endif %}
+{% endblock %}

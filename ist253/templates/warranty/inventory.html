@@ -1,0 +1,16 @@
+{% extends "warranty/list.html" %}
+
+{% block content %}
+{% if inventory_list %}
+<table border=2>
+    <tr><th>Part Number</th><th>Part Name</th><th>Part Available</th><th>Product Type</th></tr>
+    {% for inventory in inventory_list %}
+    <tr> 
+        <td><a href="/inventory/{{ inventory.partno }}/"> {{ inventory.partno }} </a> </td><td>{{ inventory.partname }}</td><td>{{ inventory.partavail }}</td><td>{{ inventory.prodtype }} </td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No parts are available.</p>
+{% endif %}
+{% endblock %}

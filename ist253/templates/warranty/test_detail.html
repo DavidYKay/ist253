@@ -1,0 +1,23 @@
+{% extends "warranty/detail.html" %}
+
+{% block content %}
+{% if test %}
+<table border=2>
+    <tr><th>Test Result Number</th><th>Product Serial Number</th><th>Diagnostic Number</th><th>Status</th><th>Part Number</th><th>Est. Service Date</th></tr>
+    <tr> 
+        <td><a href="/test_results/{{ test.testresno }}/"> {{ test.testresno }} </a> </td>
+        <td><a href="/products/{{ test.prodserno }}/"> {{ test.prodserno }} </a> </td>
+        <td><a href="/diagnostics/{{ test.diagno }}/"> {{ test.diagno }} </a> </td>
+        <td>{{ test.status }}</td>
+        {% if not test.partno %}
+        <td> {{ test.partno }} </td>
+        {% else %}
+        <td><a href="/inventory/{{ test.partno }}/"> {{ test.partno }} </a> </td>
+        {% endif %}
+        <td>{{ test.estserdate }}</td>
+    </tr>
+</table>
+{% else %}
+<p>No tests are available.</p>
+{% endif %}
+{% endblock %}

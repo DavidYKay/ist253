@@ -1,0 +1,24 @@
+{% extends "warranty/list.html" %}
+
+{% block content %}
+{% if service_plan_list %}
+<table border=2>
+    <tr>
+        <th>Service Plan Number</th>
+        <th>Service Plan Type</th>
+        <th>Service Plan Rate</th>
+        <th>Date Issued</th>
+    </tr>
+    {% for splan in service_plan_list %}
+    <tr> 
+        <td><a href="/service_plans/{{ splan.serplanno }}/"> {{ splan.serplanno }} </a> </td>
+        <td>{{ splan.serplantype }}</td>
+        <td>{{ splan.serplanrate }}</td>
+        <td>{{ splan.serplanissued }} </td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No service plans are available.</p>
+{% endif %}
+{% endblock %}
