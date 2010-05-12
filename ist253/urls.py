@@ -49,8 +49,8 @@ urlpatterns = patterns('ist253.warranty.views',
     url(r'^service_plans/$', 'service_plan_list'),
     url(r'^service_plans/(\d+)/$', 'service_plan_detail'),
 
-    url(r'^test_results/$', 'test_result_list'),
-    url(r'^test_results/(\d+)/$', 'test_result_detail'),
+    url(r'^test_results/$', 'test_list'),
+    url(r'^test_results/(\d+)/$', 'test_detail'),
 
     #(r'^site_media/(?P<path>.*)$', 'django.views.static.serve',
     #            {'document_root': settings.STATIC_DOC_ROOT}),

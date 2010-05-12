@@ -20,7 +20,6 @@ class Customer(models.Model):
     class Meta:
         db_table = u'CUSTOMER'
 
-
 class Diagnostic(models.Model):
     diagno        = models.IntegerField(primary_key=True, db_column='DiagNo') # Field name made lowercase.
     diagbegindate = models.DateField(db_column='DiagBeginDate') # Field name made lowercase.

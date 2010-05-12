@@ -70,7 +70,8 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'ist253.urls'
 
 TEMPLATE_DIRS = (
-    '/home/dk/workspace/python/django/ist253/templates',
+    #'/home/dk/workspace/python/django/ist253/templates',
+    '/var/www/localhost/app/ist253/templates',
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.

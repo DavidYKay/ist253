@@ -1,12 +1,16 @@
-{% if latest_customer_list %}
+{% extends "warranty/list.html" %}
+
+{% block content %}
+{% if inventory_list %}
 <table border=2>
-    <tr><th>CustomerAccountNo</th><th>CustomerLName</th><th>CustomerFName</th><th>CustomerAddress</th><th>CustomerCity</th><th>CustomerState</th><th>CustomerZip</th><th>CustomerPhone</th></tr>
-    {% for customer in latest_customer_list %}
+    <tr><th>Part Number</th><th>Part Name</th><th>Part Available</th><th>Product Type</th></tr>
+    {% for inventory in inventory_list %}
     <tr> 
-        <td><a href="/customers/{{ customer.customeraccountno }}/"> {{ customer.customeraccountno }} </a> </td><td>{{ customer.customerlname }}</td><td>{{ customer.customerfname }}</td><td>{{ customer.customeraddress }} </td><td>{{ customer.customercity }}</td><td>{{ customer.customerstate }}</td><td>{{ customer.customerzip }}</td><td>{{ customer.customerphone }}</td>
+        <td><a href="/inventory/{{ inventory.partno }}/"> {{ inventory.partno }} </a> </td><td>{{ inventory.partname }}</td><td>{{ inventory.partavail }}</td><td>{{ inventory.prodtype }} </td>
     </tr>
     {% endfor %}
 </table>
 {% else %}
-<p>No customers are available.</p>
+<p>No parts are available.</p>
 {% endif %}
+{% endblock %}
