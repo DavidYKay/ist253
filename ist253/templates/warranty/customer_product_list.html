@@ -5,7 +5,7 @@
     <tr><th>CustomerAccountNo</th><th>ProdSerNo</th><th>SerPlanNo</th></tr>
     {% for cp in customer_product_list %}
     <tr> 
-        <td><a href="/customers/{{ cp.customeraccountno}}/"> {{ cp.customeraccountno }} </a> </td>
+        <td><a href="/customers/{{ cp.customeraccountno.customeraccountno}}/"> {{ cp.customeraccountno }} </a> </td>
         <td><a href="/products/{{ cp.prodserno}}/"> {{ cp.prodserno }} </a> </td>
         <td><a href="/service_plans/{{ cp.serplanno}}/"> {{ cp.serplanno }} </a> </td>
     </tr>
