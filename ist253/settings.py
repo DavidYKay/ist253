@@ -82,5 +82,7 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
-    'ist253.polls'
+	'django.contrib.admin',
+    'ist253.polls',
+    'ist253.warranty',
 )

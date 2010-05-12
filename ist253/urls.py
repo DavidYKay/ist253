@@ -55,3 +55,7 @@ urlpatterns = patterns('ist253.warranty.views',
     #(r'^site_media/(?P<path>.*)$', 'django.views.static.serve',
     #            {'document_root': settings.STATIC_DOC_ROOT}),
 )
+
+urlpatterns += patterns('', 
+	#(r'^admin/', include(admin.site.urls)),                                     
+)
