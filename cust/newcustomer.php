@@ -16,18 +16,24 @@ function newCustomer($fname, $lname, $stadd, $stadd2, $city, $state, $zip, $phon
 		exit;
 	}
 
-    if ($stmt = $mysqli->prepare("INSERT INTO `CUSTOMER` 
-        (CustomerLName, CustomerFName, CustomerAddress, CustomerCity, CustomerState, CustomerZip, CustomerPhone)
-        VALUES ('?', '?', '?', '?', '?', '?', '?')")
-    ) {
-        $address = $stadd . "\n" . $stadd2;
-        $stmt->bind_param('sssssss', $fname, $lname, $address, $city, $state, $zip, $phone);
-        //sssd', $code, $language, $official, $percent
-        $stmt->execute(); 
+    //$stmt = $mysqli->prepare("INSERT INTO CUSTOMER (CustomerLName, CustomerFName, CustomerAddress, CustomerCity, CustomerState, CustomerZip, CustomerPhone) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $mysqli->prepare("INSERT INTO CUSTOMER (CustomerAccountNo, CustomerLName, CustomerFName, CustomerAddress, CustomerCity, CustomerState, CustomerZip, CustomerPhone) VALUES (null, ?, ?, ?, ?, ?, ?, ?)");
+    $address = $stadd . "\n" . $stadd2;
+
+    $array = array($lname, $fname, $address, $city, $state, $zip, $phone);
+    foreach($array as $item) {
+        echo "$item <br />";
+    }
+    $stmt->bind_param('sssssss', $lname, $fname, $address, $city, $state, $zip, $phone);
+    //sssd', $code, $language, $official, $percent
+    if ($stmt->execute()) {
         echo "Statement SUCCESS";
         echo "<br/>";
     } else {
-        echo "Statement FAIL: $stmt";
+        #echo "Statement FAIL ";
+        $error = $stmt->sqlstate;
+
+        #echo "Reason: $error";
         echo "<br />";
     }
         $mysqli->close(); 
