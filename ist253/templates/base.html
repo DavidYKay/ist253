@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <!--
+        <link rel="stylesheet" href="style.css" />
+        -->
+        <link rel="stylesheet" href="http://localhost/site_media/css/style.css" />
+        <title>{% block title %}Warranty Service Website{% endblock %}</title>
+    </head>
+
+    <body>
+        <div id="sidebar">
+            {% block sidebar %}
+            <ul>
+                <li><a href="/">Home</a></li>
+
+                <li><a href='/customers'>Customers</a> </li>
+                <li><a href='/products'>Products</a> </li>
+                <li><a href='/customer_products'>Customer_Products</a> </li>
+                <li><a href='/invoices'>Invoices</a> </li>
+                <li><a href='/inventory'>Inventory</a> </li>
+                <li><a href='/diagnostic'>Diagnostic</a> </li>
+                <li><a href='/service_plans'>Service Plans</a> </li>
+                <li><a href='/test_results'>Test Results</a> </li>
+            </ul>
+            {% endblock %}
+        </div>
+
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+        <!--
+        Footer here
+        -->
+    </body>
+</html>

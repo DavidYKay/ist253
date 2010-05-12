@@ -1,0 +1,17 @@
+{% extends "warranty/list.html" %}
+
+{% block content %}
+{% if product_list %}
+<table border=2>
+    <tr><th>Product Serial Number</th><th>Product Type</th></tr>
+    {% for product in product_list %}
+    <tr> 
+        <td><a href="/products/{{ product.prodserno }}/"> {{ product.prodserno }} </a> </td>
+        <td> {{ product.prodtype }} </td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No products are available.</p>
+{% endif %}
+{% endblock %}

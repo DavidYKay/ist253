@@ -1,0 +1,12 @@
+{% if latest_customer_list %}
+<table border=2>
+    <tr><th>CustomerAccountNo</th><th>CustomerLName</th><th>CustomerFName</th><th>CustomerAddress</th><th>CustomerCity</th><th>CustomerState</th><th>CustomerZip</th><th>CustomerPhone</th></tr>
+    {% for customer in latest_customer_list %}
+    <tr> 
+        <td><a href="/customers/{{ customer.customeraccountno }}/"> {{ customer.customeraccountno }} </a> </td><td>{{ customer.customerlname }}</td><td>{{ customer.customerfname }}</td><td>{{ customer.customeraddress }} </td><td>{{ customer.customercity }}</td><td>{{ customer.customerstate }}</td><td>{{ customer.customerzip }}</td><td>{{ customer.customerphone }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No customers are available.</p>
+{% endif %}
